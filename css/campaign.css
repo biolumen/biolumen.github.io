@@ -1,0 +1,109 @@
+			body { background-color: #ebeced;
+				font-family:'Montserrat';
+				margin: 0;
+				color: black;
+			}
+			
+			.campaign {
+				font-family: 'Montserrat';
+				width: 50%;
+				height: 100%;
+				margin-left: 25%;
+				margin-top: 40px;
+				padding: 25px;
+				margin-bottom: 25%;
+				background-color: white;
+				}
+				
+			.title {
+				font-size: 50px;
+				font-weight: bold;
+				font-family: Georgia;
+				text-align: justified;
+				margin-bottom: 10px;
+				}
+				
+			.intro {
+				text-align:justify;
+				font-size: 25px;
+				line-height: 1.6;
+				margin-bottom: 30px;
+			}
+
+			.website {
+				padding:10px;
+			}
+
+			.picture {
+				height:120px;
+				width:20%;
+				float:left;
+				margin: 10px;
+				padding-right: 10px;
+			}
+
+			.picture1 {
+				height: 120px;
+				width: 15%;
+				float: left; 
+				margin: 10px;
+			}
+
+			.info {
+				width: 100%;
+				margin-bottom: 20px;
+				line-height: 1.6;
+				font-size: 15px;
+				text-align: justify;
+				
+			}
+
+			.info a {
+				text-decoration: none;
+				color: black;
+				}
+
+			.info a:hover {
+				color: #7e6192;
+
+			}
+
+			.info::first-line {
+				font-weight:bold;
+				font-size:20px;
+			}	
+			
+			footer {
+            clear:both;
+            background-color:#303f57;
+            width:98%;
+            height:auto;
+            margin-top: 30px;
+            overflow: hidden;
+            font-size: 20px;
+            color: white;
+            padding: 1%;
+			}
+
+			.footer_title {
+			font-size: 30px;
+			}
+
+			#top {
+			display: none;
+			position: fixed;		
+			top: 20px;
+			left: -10px;
+			z-index: 20;
+			font-size: 24px;
+			border: none;
+			outline: none;
+			background-color: skyblue;
+			color: white;
+			padding: 15px;
+			border-radius: 10px
+			}
+
+			#top:hover {	
+			background-color: #555;
+			}

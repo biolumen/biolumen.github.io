@@ -1,0 +1,122 @@
+body { background-color: #ebeced;
+	font-family:'Montserrat';
+	margin: 0;
+	color: black;
+	line-height: 1.6;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  font-family: Montserrat;
+  text-align:center;
+}
+
+.navbar ul {
+   list-style: none;
+   text-align: center;
+}
+
+.navbar ul li {
+   display: inline-block;
+  padding:0px 40px;
+}
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  margin:0;
+}
+
+.navbar a:hover {
+  color: #8b918d;
+} 
+html {
+  scroll-behavior: smooth;
+}
+
+
+	
+aside {
+	width: 30%;
+	height: 800px;
+	background-color: white;
+	margin-left: 67%;
+	margin-top: 40px;
+}
+
+aside img, aside .aboutimage {
+	width: 120px;
+	height: 120px;
+	float: left;
+	margin: 10px;
+	}
+
+aside .aboutimage2 {
+	float: right;
+}
+.about {
+	font-size: 13px;
+	color: black;
+	text-align: justify;
+	padding: 20px;
+}
+
+.about a {
+	color: #b8babb;
+}
+
+.about a:hover {
+	color: #9b6aa0;
+}
+
+.about::first-line {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.first {
+	width: auto;
+	height: auto;
+	margin-bottom: 15px;
+}
+
+.aboutimage, .aboutimage2 {
+	width: 150px;
+	height: 150px;
+}
+
+.second {
+	float: right;
+	margin-bottom: 50px;
+}
+
+.recentposts {
+	color: #9c9c9c;
+	font-size: 15px;
+	padding-left: 20px;
+	line-height: 1.6;
+	}
+
+.recentposts::first-line {
+	font-size: 18px;
+	font-weight: bold;
+	}
+
+.recentposts a, .recentposts ul {
+	text-decoration: none;
+	color:#9c9c9c;
+	list-style-type: none;
+}
+
+.recentposts ul{
+	padding: 0;
+	}
+	
+.recentposts a:hover {
+	color: #7a5d8f;
+	text-decoration: underline;
+}

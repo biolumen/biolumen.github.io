@@ -1,0 +1,161 @@
+
+					body { background-color: #ebeced;
+						  font-family:'Montserrat';
+						  margin: 0;
+						  color: black;
+						  line-height: 1.6;
+					  }
+					  
+					  .navbar {
+					  overflow: hidden;
+					  background-color: white;
+					  font-family: Montserrat;
+					  text-align:center;
+					}
+					
+					.navbar ul {
+					   list-style: none;
+					   text-align: center;
+					}
+					
+					.navbar ul li {
+					   display: inline-block;
+					  padding:0px 40px;
+					}
+				
+					/* Links inside the navbar */
+					.navbar a {
+					  float: left;
+					  color: black;
+					  text-align: center;
+					  text-decoration: none;
+					  font-size: 20px;
+					  margin:0;
+					}
+					
+					.navbar a:hover {
+					  color: #8b918d;
+					} 
+					
+					.about {
+						font-family: 'Montserrat';
+						width: 50%;
+						height: 100%;
+						margin-left: 25%;
+						margin-top: 50px;
+						padding: 30px;
+						margin-bottom: 25%;
+						background-color: white;
+						}
+						
+					.intro::first-line {
+						font-size: 50px;
+						font-weight: bold;
+						text-align: justify;
+						font-family: 'Georgia';
+						}
+						
+					.intro {
+						text-align: justify;
+						font-size: 20px;
+					}
+					
+					.author {
+						padding:10px;
+					}
+					
+					.picture {
+						height:200px;
+						width:200px;
+						margin-right: 20px;
+						float:left;
+					}
+					
+					.picture_2 {
+						height:200px;
+						width:200px;
+						margin-left: 20px;
+						float:right;
+					}
+					
+					.info, .info_2 {
+						text-align: justify;
+						
+					}
+					
+					.info::first-line, .info_2::first-line {
+						text-align:center;
+						font-weight:bold;
+						font-size:20px;
+					}	
+					
+					.fa {
+						padding: 10px;
+						font-size: 15px;
+						width: 15px;
+						text-align: center;
+						text-decoration: none;
+						margin: 5px 2px;
+						border-radius: 50%;
+					  }
+					
+					.fa:hover {
+						opacity: 0.7;
+					}
+					
+					.fa-facebook {
+					  background: #3B5998;
+					  color: white;
+					}
+					
+					
+					.fa-twitter {
+					  background: #55ACEE;
+					  color: white;
+					}
+					
+					.media1 {
+						float:left;
+					}
+					.media {
+						float: right;
+					}
+					
+					footer {
+						clear:both;
+						background-color:#303f57;
+						width:98%;
+						height:auto;
+						margin-top: 30px;
+						overflow: hidden;
+						font-size: 20px;
+						color: white;
+						padding: 1%;
+       				 }
+
+					.footer_title {
+					font-size: 30px;
+					}
+					
+					#top {
+					display: none;
+					position: fixed;		
+					top: 20px;
+					left: -10px;
+					z-index: 20;
+					font-size: 24px;
+					border: none;
+					outline: none;
+					background-color: skyblue;
+					color: white;
+					padding: 15px;
+					border-radius: 10px
+					}
+
+					#top:hover {	
+					background-color: #555;
+					}
+					
+					html {
+					scroll-behavior: smooth;
+					}
