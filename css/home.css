@@ -223,7 +223,7 @@
         aside {
           float:left;
           width: 30%;
-          height: 1175px;
+          height: auto;
           background-color: white;
           margin-left: 67%;
           margin-top:-1427px;
