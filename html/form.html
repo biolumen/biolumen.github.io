@@ -25,7 +25,6 @@ gtag('js', new Date());
 gtag('config', 'UA-157736734-7');
 </script>
 <script>
-// to be called when the Save Data button was pressed
 		var sData = function(){
 			// get the user data from the forms's input fields. 
 			let fname = document.forms[0].fname.value;
@@ -42,51 +41,38 @@ gtag('config', 'UA-157736734-7');
 			let threats = document.forms[0].threats.value;
 			let preserve = document.forms[0].preserve.value;
 			
-			
-			// create an object with two name=value pairs which are name=fname and comments=comment
 			let objComment = {name: fname, sex: sex, age: age, educ: levelOfEducation, heard: haveYouHeard, wherefirst: whereFirstHear, meaning: Meaning, important: WhyBiodiversityIsImportant,
 			tolife: BiodiversityToLife, emportant: WhyAreTheEnvironmentsImportant, aware: isAware, threat: threats, preserves: preserve };
 			
-			// change the object into a String needed for saving the information as a cookie.
 			let jsonString = JSON.stringify(objComment);
 			
-			// check if count exists as a cookie, if not count = 1 otherwiase count is increased by 1
 			count = (!localStorage.getItem("count")) ? 1 : Number(localStorage.getItem("count")) + 1;
 			
-			// construct the cookie keyname for the current user comment record
 			record = "Record" + count
 			
-			// save the user comment as a cookie
 			localStorage.setItem(record, jsonString)
 			
-			// save count as a cookie, NOTE: .toString() converts count into a string)
 			localStorage.setItem("count", count.toString())
 		}
 		
-		
-		// to be called after the web paged had been loaded, through the onload event handler	
 		var rData = function(){
-			// read the cookie count
 			count = localStorage.getItem("count")
 			
-			// check if the cookie count has a value 
 			if (count) {
-				// reads the number of cookies saved in the user's computer based on count
 				for (i=1; i<=count; i++) {
-					record = "Record" + i	// construct the cookie keynames 
+					record = "Record" + i	
 					
-					text = localStorage.getItem(record); // actually reads the cookie using the keyname constructed on the previous line
+					text = localStorage.getItem(record); 
 
-					recordObject = JSON.parse(text);	// converts the string value in text to an object to enable access to the name and comment
+					recordObject = JSON.parse(text);	
 					
-					// place the name/s and comment/s into the <p> with id="comments"
 					answers.innerHTML += "<h4> You are "+recordObject.name + " a " + recordObject.sex+ ", " + recordObject.age + " of age, who is studying or have completed " + recordObject.educ +
 					" education. You " + recordObject.heard + " heard of the term 'biodiversity' and you heard it first " + recordObject.wherefirst + ". You think biodiversity is " + recordObject.meaning +
 					" and it is important because " + recordObject.important + ". Biodiversity affects your life as/by " + recordObject.tolife + " and you do think that the environment (forests, swamps, rivers) is important because "
-					+ recordObject.emportant + ". You " + recordObject.aware + " aware that biodiversity is thretened of what you think is " + recordObject.threat + ". Lastly, you think we can preserve biodiversity by " + recordObject.preserves + ".";
+					+ recordObject.emportant + ". You " + recordObject.aware + " aware that biodiversity is threatened of what you think is " + recordObject.threat + ". Lastly, you think we can preserve biodiversity by " + recordObject.preserves + ".";
 				}
 			}
-			else {answers.innerHTML = "Here is what we've heard from you..."} // this will be the content of the <p> if count has a null value, meaning no cookies saved yet
+			else {answers.innerHTML = "Here is what we've heard from you..."}
  			
 		}		
 </script>
