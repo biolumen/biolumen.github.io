@@ -24,8 +24,74 @@ gtag('js', new Date());
 
 gtag('config', 'UA-157736734-7');
 </script>
+<script>
+// to be called when the Save Data button was pressed
+		var sData = function(){
+			// get the user data from the forms's input fields. 
+			let fname = document.forms[0].fname.value;
+			let sex = document.forms[0].sex.value;
+			let age = document.forms[0].age.value;
+			let levelOfEducation = document.forms[0].levelOfEducation.value;
+			let haveYouHeard = document.forms[0].haveYouHeard.value;
+			let whereFirstHear = document.forms[0].whereFirstHear.value;
+			let Meaning = document.forms[0].Meaning.value;
+			let WhyBiodiversityIsImportant = document.forms[0].WhyBiodiversityIsImportant.value;
+			let BiodiversityToLife = document.forms[0].BiodiversityToLife.value;
+			let WhyAreTheEnvironmentsImportant = document.forms[0].WhyAreTheEnvironmentsImportant.value;
+			let isAware = document.forms[0].isAware.value;
+			let threats = document.forms[0].threats.value;
+			let preserve = document.forms[0].preserve.value;
+			
+			
+			// create an object with two name=value pairs which are name=fname and comments=comment
+			let objComment = {name: fname, sex: sex, age: age, educ: levelOfEducation, heard: haveYouHeard, wherefirst: whereFirstHear, meaning: Meaning, important: WhyBiodiversityIsImportant,
+			tolife: BiodiversityToLife, emportant: WhyAreTheEnvironmentsImportant, aware: isAware, threat: threats, preserves: preserve };
+			
+			// change the object into a String needed for saving the information as a cookie.
+			let jsonString = JSON.stringify(objComment);
+			
+			// check if count exists as a cookie, if not count = 1 otherwiase count is increased by 1
+			count = (!localStorage.getItem("count")) ? 1 : Number(localStorage.getItem("count")) + 1;
+			
+			// construct the cookie keyname for the current user comment record
+			record = "Record" + count
+			
+			// save the user comment as a cookie
+			localStorage.setItem(record, jsonString)
+			
+			// save count as a cookie, NOTE: .toString() converts count into a string)
+			localStorage.setItem("count", count.toString())
+		}
+		
+		
+		// to be called after the web paged had been loaded, through the onload event handler	
+		var rData = function(){
+			// read the cookie count
+			count = localStorage.getItem("count")
+			
+			// check if the cookie count has a value 
+			if (count) {
+				// reads the number of cookies saved in the user's computer based on count
+				for (i=1; i<=count; i++) {
+					record = "Record" + i	// construct the cookie keynames 
+					
+					text = localStorage.getItem(record); // actually reads the cookie using the keyname constructed on the previous line
+
+					recordObject = JSON.parse(text);	// converts the string value in text to an object to enable access to the name and comment
+					
+					// place the name/s and comment/s into the <p> with id="comments"
+					answers.innerHTML += "<h4> You are "+recordObject.name + " a " + recordObject.sex+ ", " + recordObject.age + " of age, who is studying or completed " + recordObject.educ +
+					" education. You " + recordObject.heard + " of the term 'biodiversity' and you heard it first " + recordObject.wherefirst + ". You think biodversity is " + recordObject.meaning +
+					" and it is important because " + recordObject.important + ". Biodiversity affects your life as/by " + recordObject.tolife + " and you do think that the environment (forests, swamps, rivers) is important because "
+					+ recordObject.emportant + ". You " + recordObject.aware + " that biodiversity is thretened of what you think is " + recordObject.threat + ". Lastly, you think we can preserve biodiversity by " + recordObject.preserves + ".";
+				}
+			}
+			else {answers.innerHTML = "Here is what we've heard from you..."} // this will be the content of the <p> if count has a null value, meaning no cookies saved yet
+ 			
+		}		
+</script>
 	</head>
-	<body>
+	<body onload="rData()">
 	
 	<button onclick="topFunction()" id="top" title="Go to top">Slide to Top</button>
 	<script src="../javascript/button.js"></script>
@@ -46,7 +112,7 @@ gtag('config', 'UA-157736734-7');
 		<div class="article">
 	
 	<h1>Biodiversity Awareness Survey</h1>
-	<form action="thanks.html"; onsubmit="return confirm('Do you want to submit your answers?');" onReset="return confirm('Do you want to reset your answers?');">
+	<form onsubmit="return sData()";" onReset="return confirm('Do you want to reset your answers?');">
 		<fieldset>
 		<legend>Personal Information</legend>
 		<label>Please Enter Full Name:
@@ -56,6 +122,7 @@ gtag('config', 'UA-157736734-7');
 		<label>Sex:
 			<input type="radio" name="sex" button onclick = "male()" value="Male" required /> Male
 			<input type="radio" name="sex" button onclick = "female()" value="Female" required /> Female
+			<input type="radio" name="sex" button onclick = "female()" value="Non-binary" required /> Non-binary
 		</label>
 		<br>
 		<label>Age:
@@ -79,8 +146,8 @@ gtag('config', 'UA-157736734-7');
 		<fieldset>
 		<legend>Biodiversity Awareness</legend>
 		<label>Have you heard of the term "Biodiversity"?
-			<input type="radio" name="haveYouHeard" value="Yes" required />Yes
-			<input type="radio" name="haveYouHeard" value="No" required />No
+			<input type="radio" name="haveYouHeard" value="have" required />Yes
+			<input type="radio" name="haveYouHeard" value="haven't" required />No
 		</label>
 		<br>
 		<label>Where did you first hear about biodiversity?
@@ -96,7 +163,7 @@ gtag('config', 'UA-157736734-7');
 		</label>
 		<br>
 		<label>How does biodiversity affect your life?
-			<input type="text" name="WhyBiodiversityIsImportant" required />
+			<input type="text" name="BiodiversityToLife" required />
 		</label>
 		<br>
 		<label>Why do you think our forests, swamps, rivers, and other environments are important?
@@ -104,8 +171,8 @@ gtag('config', 'UA-157736734-7');
 		</label>
 		<br>
 		<label>Are you aware that our biodiversity is being threatened?
-			<input type="radio" name="isAware" value="Yes" required />Yes
-			<input type="radio" name="isAware" value="No" required />No
+			<input type="radio" name="isAware" value="are" required />Yes
+			<input type="radio" name="isAware" value="are not" required />No
 		</label>
 		<br>
 		<label>What do you think could be threatening the biodiversity of our planet?
@@ -113,11 +180,11 @@ gtag('config', 'UA-157736734-7');
 		</label>
 		<br>
 		<label>How do you think we can preserve or restore our biodiversity?
-			<input type="text" name="threats" required />
+			<input type="text" name="preserve" required />
 		</label>
 		</fieldset>
 		<br>
-	Thank you for taking your time to answer this survey.
+		<p id = "answers"> </p>
 		
 		</div>
  
