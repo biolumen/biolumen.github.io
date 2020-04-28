@@ -10,6 +10,10 @@
 		function female() {
 			document.getElementById("kasarian").innerHTML = 'female';
 		}
+
+		function nbinary() {
+			document.getElementById("kasarian").innerHTML = 'non - binary';
+		}
 		
 		function eleven() {
 			document.getElementById("edad").innerHTML = '11 or below';
